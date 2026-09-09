@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Panel de observabilidad local del sitio de Cristiano Ronaldo: métricas de rendimiento, errores, interacciones y soporte de APIs guardados solo en este navegador." />
+  <meta name="robots" content="noindex" />
+  <title>Panel de observabilidad local | Sitio Cristiano Ronaldo</title>
+  <link rel="stylesheet" href="observabilidad.css" />
+</head>
+<body>
+  <a class="salto-contenido" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera__barra">
+      <p class="cabecera__marca">CR7 · Observabilidad local</p>
+      <nav aria-label="Navegación">
+        <ul class="nav__lista">
+          <li><a class="nav__enlace" href="index.html">← Volver al sitio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal" class="contenedor">
+    <section class="intro" aria-labelledby="intro-titulo">
+      <h1 id="intro-titulo">Panel de observabilidad</h1>
+      <p>
+        Esta página recopila datos de uso y rendimiento <strong>exclusivamente en tu
+        navegador</strong>. No hay servidor, ni servicios externos, ni envío de
+        información: todo se almacena en <code>localStorage</code> bajo claves con el
+        prefijo <code>cr7-observability</code>.
+      </p>
+      <p id="sello-actualizacion" class="sello" role="status">Sin cargar todavía.</p>
+    </section>
+
+    <section class="panel" id="panel-observabilidad" aria-labelledby="controles-titulo">
+      <h2 id="controles-titulo">Controles</h2>
+
+      <div class="controles" role="group" aria-label="Acciones del panel">
+        <button type="button" id="btn-actualizar" class="boton">
+          Actualizar datos
+        </button>
+        <button type="button" id="btn-demo" class="boton boton--secundario">
+          Generar evento de demostración
+        </button>
+        <button type="button" id="btn-descargar" class="boton boton--secundario">
+          Descargar snapshot JSON
+        </button>
+        <button type="button" id="btn-limpiar" class="boton boton--peligro">
+          Limpiar almacenamiento
+        </button>
+      </div>
+
+      <p id="anuncio-estado" class="anuncio" role="status" aria-live="polite"></p>
+    </section>
+
+    <section aria-labelledby="resumen-titulo">
+      <h2 id="resumen-titulo">Resumen</h2>
+      <div id="salida-resumen"></div>
+    </section>
+
+    <section aria-labelledby="entorno-titulo">
+      <h2 id="entorno-titulo">Entorno, viewport y conexión</h2>
+      <div id="salida-entorno"></div>
+    </section>
+
+    <section aria-labelledby="apis-titulo">
+      <h2 id="apis-titulo">Soporte de APIs del navegador</h2>
+      <div id="salida-apis"></div>
+    </section>
+
+    <section aria-labelledby="rendimiento-titulo">
+      <h2 id="rendimiento-titulo">Rendimiento (Performance API)</h2>
+      <div id="salida-rendimiento"></div>
+    </section>
+
+    <section aria-labelledby="eventos-titulo">
+      <h2 id="eventos-titulo">Eventos registrados</h2>
+      <p class="nota">
+        Se registran: carga y tiempos de navegación, errores de JavaScript,
+        promesas rechazadas, errores de carga de recursos, clics en enlaces /
+        botones / controles, cambios en formularios, cambios de visibilidad de la
+        pestaña y cambios de conexión.
+      </p>
+      <div id="salida-eventos"></div>
+    </section>
+
+    <section aria-labelledby="json-titulo">
+      <h2 id="json-titulo">Snapshot completo (JSON)</h2>
+      <details>
+        <summary>Ver <code>CR7Observability.getSnapshot()</code></summary>
+        <pre id="salida-json" class="json" tabindex="0" aria-label="Snapshot JSON en texto"></pre>
+      </details>
+    </section>
+  </main>
+
+  <footer class="pie contenedor">
+    <p>
+      <small>
+        Observabilidad local con fines educativos. Los datos nunca salen de este
+        navegador. Para borrarlos por completo usa «Limpiar almacenamiento» o borra
+        los datos del sitio.
+      </small>
+    </p>
+  </footer>
+
+  <script src="observabilidad.js"></script>
+</body>
+</html>

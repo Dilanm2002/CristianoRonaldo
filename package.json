@@ -1,0 +1,15 @@
+{
+  "name": "pagina-cristiano-ronaldo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio estático informativo sobre Cristiano Ronaldo",
+  "scripts": {
+    "lint:html": "html-validate index.html observabilidad.html",
+    "lint:js": "eslint script.js observabilidad.js",
+    "lint": "npm run lint:html && npm run lint:js"
+  },
+  "devDependencies": {
+    "eslint": "^9.13.0",
+    "html-validate": "^8.24.0"
+  }
+}
